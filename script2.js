@@ -46,6 +46,8 @@ if (chat.style.display === "none") {
 }
 });
 
+const positionId = document.getElementById("inteviewnow-script").attributes["position-id"].value
+
 const chat = document.createElement("div");
 chat.setAttribute("id", "interview-now-bubble-window");
 chat.style.position = "fixed";
@@ -62,7 +64,7 @@ chat.style.zIndex = 999999999;
 chat.style.overflow = "hidden";
 document.body.appendChild(chat);
 chat.innerHTML = `<iframe
-src="http://d6b3-181-4-97-194.ngrok.io"
+src="https://interviewnow.netlify.app?${positionId}"
 width="100%"
 height="100%"
 frameborder="0"
