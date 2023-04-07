@@ -54,7 +54,7 @@ chat.style.justifyContent = "space-between";
 chat.style.bottom = "80px";
 chat.style.right = "20px";
 chat.style.width = "85vw";
-chat.style.height = "70vh";
+chat.style.height = "60vh";
 chat.style.boxShadow = "rgba(150, 150, 150, 0.15) 0px 6px 24px 0px, rgba(150, 150, 150, 0.15) 0px 0px 0px 1px";
 chat.style.display = "none";
 chat.style.borderRadius = "10px";
@@ -90,26 +90,37 @@ const getChatButtonColor = async () => {
   chatButtonIcon.innerHTML = getChatButtonIcon();
 };
 
+function addAnimationKeyframes() {
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes button-ping {
+      0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 1);
+      }
+      70% {
+        transform: scale(.95);
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+      }
+      100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function getChatButtonIcon() {
   return `
-  <button style="
-    background-color: #3b82f6;
-    cursor: pointer;
-    border: none;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-weight: bold;
-    color: #ffffff;
-    border-radius: 9999px;
-    outline: none;
-    transition-duration: 150ms;
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  " onmouseover="this.style.backgroundColor='#2563eb'" onmouseout="this.style.backgroundColor='#3b82f6'">
-    Easy apply now!
-  </button>`;
+  <div style="position: relative; display: inline-block;" onmouseover="this.querySelector('button').style.backgroundColor='#2563eb'" onmouseout="this.querySelector('button').style.backgroundColor='#3b82f6'">
+    <button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 7rem; height: 2.5rem; padding: 0.25rem 0.75rem; font-weight: bold; color: #ffffff; background-color: #3b82f6; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s;">
+      <span>Easy apply now!</span>
+    </button>
+    <span style="position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 1px; animation: button-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;">
+      <span style="display: block; width: 7rem; height: 2.5rem; background-color: transparent; border: 1px solid rgba(59, 130, 246, 0.6); border-radius: 0.5rem;"></span>
+    </span>
+  </div>`;
 }
 
 function getChatButtonCloseIcon() {
@@ -135,4 +146,5 @@ function getContrastingTextColor(color) {
   );
 }
 
+addAnimationKeyframes()
 getChatButtonColor();
