@@ -1,4 +1,4 @@
-const CHAT_BUTTON_SIZE = 50,
+  const CHAT_BUTTON_SIZE = 50,
     CHAT_BUTTON_RADIUS = 25,
     CHAT_BUTTON_BACKGROUND_COLOR = "black",
     scriptTag = document.currentScript;
@@ -114,8 +114,8 @@ frameborder="0"
   function getChatButtonIcon() {
     return `
     <div style="position: relative; display: inline-block;" onmouseover="this.querySelector('button').style.backgroundColor='#1F2937'" onmouseout="this.querySelector('button').style.backgroundColor='#1F2937'">
-  <button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 7rem; height: 2.5rem; padding: 0.25rem 0.75rem; font-weight: bold; color: #ffffff; background-color: #1F2937; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
-    <span>Submit profile!</span>
+  <button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 7rem; height: 2.5rem; padding: 1rem 0.4rem 1rem;  font-weight: bold; color: #ffffff; background-color: #1F2937; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+    <span style="font-family: Arial, Helvetica, sans-serif;">Submit profile!</span>
   </button>
   <span style="position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 1px; animation: button-ping 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
     <span style="display: block; width: 7rem; height: 2.5rem; background-color: transparent; border: 1px solid rgba(75, 85, 99, 0.6); border-radius: 0.5rem;"></span>
@@ -125,8 +125,8 @@ frameborder="0"
   function getChatButtonCloseIcon() {
     return `
     <div style="position: relative; display: inline-block;" onmouseover="this.querySelector('button').style.backgroundColor='#1F2937'" onmouseout="this.querySelector('button').style.backgroundColor='#1F2937'">
-  <button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 7rem; height: 2.5rem; padding: 0.25rem 0.75rem; font-weight: bold; color: #ffffff; background-color: #1F2937; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
-    <span>Close</span>
+  <button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 7rem; height: 2.5rem; padding: 1rem 0.4rem 1rem;  font-weight: bold; color: #ffffff; background-color: #1F2937; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+    <span style="font-family: Arial, Helvetica, sans-serif;">Close</span>
   </button>
   <span style="position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 1px;">
     <span style="display: block; width: 7rem; height: 2.5rem; background-color: transparent; border: 1px solid rgba(75, 85, 99, 0.6); border-radius: 0.5rem;"></span>
