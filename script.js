@@ -184,9 +184,21 @@ fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/user
 }
 
 // window.onload = () => new MutationObserver(mutations => mutations.forEach(() => oldHref !== document.location.href && (oldHref = document.location.href, console.log(document.location.href)))).observe(document.querySelector("body"), { childList: true, subtree: true });
-window.addEventListener('popstate', function (event) {
-	// Log the state data to the console
-	console.log("POPSTATE", event.state);
-});
+let lastUrl = window.location.href;
+
+function checkUrlChange() {
+  const currentUrl = window.location.href;
+
+  if (currentUrl !== lastUrl) {
+    console.log('URL CHANGED???');
+    enabledPaths()
+    lastUrl = currentUrl;
+  }
+}
+
+// Execute checkUrlChange every 500ms
+setInterval(checkUrlChange, 500);
+
+// Also log 'test' when the page initially loads
 // window.addEventListener("hashchange", enabledPaths);
 enabledPaths()
