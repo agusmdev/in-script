@@ -184,6 +184,9 @@ fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/user
 }
 
 window.onload = () => new MutationObserver(mutations => mutations.forEach(() => oldHref !== document.location.href && (oldHref = document.location.href, console.log(document.location.href)))).observe(document.querySelector("body"), { childList: true, subtree: true });
-
+window.addEventListener('popstate', function (event) {
+	// Log the state data to the console
+	console.log(event.state);
+});
 window.addEventListener("hashchange", enabledPaths);
 enabledPaths()
