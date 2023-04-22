@@ -152,6 +152,9 @@ frameborder="0"
     );
   }
 
+  getChatButtonColor()
+  addAnimationKeyframes()
+
 }
 
 function enabledPaths() {
