@@ -183,10 +183,10 @@ fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/user
   .catch(error => console.error("Error fetching enabled paths:", error));
 }
 
-window.onload = () => new MutationObserver(mutations => mutations.forEach(() => oldHref !== document.location.href && (oldHref = document.location.href, console.log(document.location.href)))).observe(document.querySelector("body"), { childList: true, subtree: true });
+// window.onload = () => new MutationObserver(mutations => mutations.forEach(() => oldHref !== document.location.href && (oldHref = document.location.href, console.log(document.location.href)))).observe(document.querySelector("body"), { childList: true, subtree: true });
 window.addEventListener('popstate', function (event) {
 	// Log the state data to the console
-	console.log(event.state);
+	console.log("POPSTATE", event.state);
 });
-window.addEventListener("hashchange", enabledPaths);
+// window.addEventListener("hashchange", enabledPaths);
 enabledPaths()
