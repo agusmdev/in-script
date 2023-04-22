@@ -183,5 +183,7 @@ fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/user
   .catch(error => console.error("Error fetching enabled paths:", error));
 }
 
+window.onload = () => new MutationObserver(mutations => mutations.forEach(() => oldHref !== document.location.href && (oldHref = document.location.href, console.log(document.location.href)))).observe(document.querySelector("body"), { childList: true, subtree: true });
+
 window.addEventListener("hashchange", enabledPaths);
 enabledPaths()
