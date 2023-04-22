@@ -2,6 +2,7 @@ const CHAT_BUTTON_SIZE = 50,
 CHAT_BUTTON_RADIUS = 25,
 CHAT_BUTTON_BACKGROUND_COLOR = "black",
 scriptTag = document.currentScript;
+const userId = scriptTag.getAttribute("userId")
 
 
 let ICON_COLOR = "white";
@@ -66,7 +67,7 @@ chat.style.zIndex = 999999999;
 chat.style.overflow = "hidden";
 document.body.appendChild(chat);
 chat.innerHTML = `<iframe
-src="https://interviewnow.netlify.app"
+src="https://interviewnow.netlify.app?userId=${userId}"
 width="100%"
 height="100%"
 frameborder="0"
@@ -159,7 +160,6 @@ addAnimationKeyframes()
 
 function enabledPaths() {
 // Make a request to the endpoint to get the enabled paths
-const userId = scriptTag.getAttribute("userId")
 fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/users/${userId}/paths`)
   .then(response => response.json())
   .then(data => {
