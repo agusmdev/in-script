@@ -14,6 +14,10 @@ chatButton.setAttribute("id", "interview-now-bubble-button");
 chatButton.style.position = "fixed";
 chatButton.style.bottom = "20px";
 chatButton.style.left = "20px";
+// chatButton.style.width = "50px";
+// chatButton.style.height = "50px";
+// chatButton.style.borderRadius = "25px";
+// chatButton.style.backgroundColor = "black";
 chatButton.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
 chatButton.style.cursor = "pointer";
 chatButton.style.zIndex = 999999999;
@@ -51,10 +55,15 @@ chat.setAttribute("id", "interview-now-bubble-window");
 chat.style.position = "fixed";
 chat.style.bottom = "80px";
 chat.style.left = "20px";
-chat.style.width = "85vw";
-chat.style.height = "60vh";
+// chat.style.width = "85vw";
+// chat.style.height = "2000px";
+chat.style.backgroundColor = "red";
+// chat.style.boxShadow = "rgba(150, 150, 150, 0.15) 0px 6px 24px 0px, rgba(150, 150, 150, 0.15) 0px 0px 0px 1px";
+chat.style.display = "none";
 chat.style.borderRadius = "10px";
 chat.style.zIndex = 999999999;
+// chat.style.overflow = "visible";
+// chat.style.overflow = "hidden";
 document.body.appendChild(chat);
 chat.innerHTML = `<iframe
 src="https://interviewnow.netlify.app?userId=${userId}"
@@ -155,8 +164,8 @@ fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/user
   .then(response => response.json())
   .then(data => {
     // Extract the enabled paths from the response data
-    // const paths = data.enabled_paths.map(e => e.toLowerCase()) + ["*"]
-    const paths = ["*"]
+    const paths = data.enabled_paths.map(e => e.toLowerCase())
+    // const paths = ["*"]
     // Get the current URL of the page
     const currentUrl = window.location.href.toLowerCase();
 
