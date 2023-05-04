@@ -12,16 +12,18 @@ function createElements() {
 const chatButton = document.createElement("div");
 chatButton.setAttribute("id", "interview-now-bubble-button");
 chatButton.style.position = "fixed";
-chatButton.style.bottom = "20px";
+// chatButton.style.bottom = "20px";
+chatButton.style.bottom = "550px";
 chatButton.style.left = "20px";
 // chatButton.style.width = "50px";
 // chatButton.style.height = "50px";
 // chatButton.style.borderRadius = "25px";
 // chatButton.style.backgroundColor = "black";
-chatButton.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
+// chatButton.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
 chatButton.style.cursor = "pointer";
 chatButton.style.zIndex = 999999999;
 chatButton.style.transition = "all .2s ease-in-out";
+// chatButton.style.background = "red";
 
 chatButton.addEventListener("mouseenter", (t) => {
   chatButton.style.transform = "scale(1.05)";
@@ -43,23 +45,24 @@ chatButton.appendChild(chatButtonIcon);
 chatButton.addEventListener("click", () => {
   if (chat.style.display === "none") {
     chat.style.display = "flex";
-    chatButtonIcon.innerHTML = getChatButtonCloseIcon();
+    chatButtonIcon.innerHTML = getChatButtonIcon();
   } else {
     chat.style.display = "none";
-    chatButtonIcon.innerHTML = getChatButtonIcon();
+    chatButtonIcon.innerHTML = ""
+    // chatButtonIcon.innerHTML = getChatButtonIcon();
   }
 });
 
 const chat = document.createElement("div");
 chat.setAttribute("id", "interview-now-bubble-window");
 chat.style.position = "fixed";
-chat.style.bottom = "80px";
+chat.style.bottom = "10px";
 chat.style.left = "20px";
 // chat.style.width = "85vw";
 // chat.style.height = "2000px";
 // chat.style.backgroundColor = "red";
 chat.style.boxShadow = "0 1px 14px 1px rgba(0,0,0,0.1)"
-chat.style.display = "none";
+chat.style.display = "flex";
 chat.style.borderRadius = "10px";
 chat.style.zIndex = 999999999;
 // chat.style.overflow = "visible";
@@ -71,6 +74,7 @@ width="100%"
 height="100%"
 frameborder="0"
 ></iframe>`;
+
 
 const mediaQuery = window.matchMedia("(min-width: 550px)");
 
@@ -117,27 +121,12 @@ box-shadow: 0 0 0 0 rgba(0,0,0, 0);
 
 function getChatButtonIcon() {
   return `
-<div style="position: relative; display: inline-block;" onmouseover="this.querySelector('button').style.backgroundColor='#1F2937'" onmouseout="this.querySelector('button').style.backgroundColor='#1F2937'">
-<button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 9rem; height: 2.5rem; padding: 1rem 0.1rem 1rem;  font-weight: bold; color: #ffffff; background-color: #1F2937; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
-<span style="font-family: Arial, Helvetica, sans-serif;">Submit profile!</span>
-</button>
-<span style="position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 1px; animation: button-ping 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
-<span style="display: block; width: 9rem; height: 2.5rem; background-color: transparent; border: 1px solid rgba(75, 85, 99, 0.6); border-radius: 0.5rem;"></span>
-</span>
-</div>`;
-}
-function getChatButtonCloseIcon() {
-  return `
-<div style="position: relative; display: inline-block;" onmouseover="this.querySelector('button').style.backgroundColor='#1F2937'" onmouseout="this.querySelector('button').style.backgroundColor='#1F2937'">
-<button style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 9rem; height: 2.5rem; padding: 1rem 0.1rem 1rem;  font-weight: bold; color: #ffffff; background-color: #1F2937; border-radius: 0.5rem; outline: none; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);">
+<div style="position: relative; display: inline-block;" >
+<div style="position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: fit-content; height: 0.5rem; padding: 1rem 1.5rem; margin: 0 30px; font-weight: 200; color: #0f0f0f; background-color: #fff; border-radius: 0.5rem 0.5rem 0 0 ; outline: none; cursor: pointer; ">
 <span style="font-family: Arial, Helvetica, sans-serif;">Close</span>
-</button>
-<span style="position: absolute; top: 0; left: 0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 1px;">
-<span style="display: block; width: 9rem; height: 2.5rem; background-color: transparent; border: 1px solid rgba(75, 85, 99, 0.6); border-radius: 0.5rem;"></span>
-</span>
+</div>
 </div>`;
 }
-
 function getContrastingTextColor(color) {
   if (color.charAt(0) === "#") {
     color = color.substr(1);
