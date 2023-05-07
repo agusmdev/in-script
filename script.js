@@ -3,7 +3,7 @@ CHAT_BUTTON_RADIUS = 25,
 CHAT_BUTTON_BACKGROUND_COLOR = "black",
 scriptTag = document.currentScript;
 const userId = scriptTag.getAttribute("userId")
-
+let removedScript = false
 
 let ICON_COLOR = "white";
 
@@ -42,10 +42,11 @@ closeButtonIcon.style.zIndex = 999999999;
 closeButton.appendChild(closeButtonIcon);
 
 closeButton.addEventListener("click", () => {
-  scriptTag.remove()
+  removedScript = true
   widgetForm.style.display = "none";
-  closeButtonIcon.innerHTML = ""
-  widgetForm.innerHTML = ""
+  closeButtonIcon.style.display = "none";
+  // closeButtonIcon.innerHTML = ""
+  // widgetForm.innerHTML = ""
 });
 
 const widgetForm = document.createElement("div");
@@ -158,7 +159,7 @@ fetch(`https://n252jrjdnyzkxkxecnbmnhveme0sjlqi.lambda-url.us-east-1.on.aws/user
     // const bubbleWindow = document.getElementById("candidate-now-widget")
     const enabledSize = window.screen.width > 700
 
-    if (enabledSize && (paths.some(url => url.startsWith(currentUrl.slice(0, -1))) || paths.includes("*"))) {
+    if (!removedScript && enabledSize && (paths.some(url => url.startsWith(currentUrl.slice(0, -1))) || paths.includes("*"))) {
       // Get the iframe element
       widgetForm.style.display = "flex";
       closeButtonIcon.style.display = "flex";
