@@ -42,9 +42,10 @@ closeButtonIcon.style.zIndex = 999999999;
 closeButton.appendChild(closeButtonIcon);
 
 closeButton.addEventListener("click", () => {
-widgetForm.style.display = "none";
-closeButtonIcon.innerHTML = ""
-widgetForm.innerHTML = ""
+  scriptTag.remove()
+  widgetForm.style.display = "none";
+  closeButtonIcon.innerHTML = ""
+  widgetForm.innerHTML = ""
 });
 
 const widgetForm = document.createElement("div");
