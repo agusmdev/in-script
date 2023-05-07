@@ -44,6 +44,7 @@ closeButton.appendChild(closeButtonIcon);
 closeButton.addEventListener("click", () => {
 widgetForm.style.display = "none";
 closeButtonIcon.innerHTML = ""
+widgetForm.innerHTML = ""
 });
 
 const widgetForm = document.createElement("div");
